@@ -18,6 +18,10 @@ import com.android.volley.toolbox.JsonObjectRequest
 import com.android.volley.toolbox.Volley
 import com.google.android.gms.location.*
 import java.util.*
+import android.widget.AdapterView
+import android.widget.AdapterView.OnItemSelectedListener
+import org.json.JSONObject
+
 
 class MainActivity : AppCompatActivity() {
     lateinit var fusedlocation: FusedLocationProviderClient
@@ -44,7 +48,9 @@ class MainActivity : AppCompatActivity() {
 
                         if (lat != null && long != null) {
                             // Getting JSON data from api
-                            getCurrentJsonData(lat, long)
+                            weather_btn.setOnClickListener {
+                                getCurrentJsonData(lat, long)
+                            }
 
                             // Update info to the UI
                             var (cityName, country) = getAddress(lat.toDouble(), long.toDouble())
@@ -132,11 +138,7 @@ class MainActivity : AppCompatActivity() {
             val jsonRequest = JsonObjectRequest(
                 Request.Method.GET, url, null,
                 Response.Listener { response ->
-                    Toast.makeText(
-                        this,
-                        response.toString(),
-                        Toast.LENGTH_LONG
-                    ).show()
+                    setValues(response)
                 },
                 Response.ErrorListener {
                     Toast.makeText(
@@ -156,4 +158,13 @@ class MainActivity : AppCompatActivity() {
             ).show()
         }
     }
+
+    private fun setValues(response: JSONObject) {
+        var tempCel = response.getJSONArray("data").getJSONObject(0).getInt("temp")
+        temp_c.text =  "${tempCel} °C"
+        tempF.text =  "${tempCel * 1.8 + 32} °F"
+        var hdt = response.getJSONArray("data").getJSONObject(0).getString("rh")
+        humidity.text =  hdt + "%"
+    }
+
 }

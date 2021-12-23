@@ -96,6 +96,7 @@
         android:textSize="16dp" />
 
     <Button
+        android:id="@+id/weather_btn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
@@ -117,6 +118,7 @@
         android:paddingRight="30dp">
 
         <TextView
+            android:id="@+id/temp_c"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentLeft="true"
@@ -125,6 +127,7 @@
             android:textStyle="bold" />
 
         <TextView
+            android:id="@+id/tempF"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
@@ -152,6 +155,7 @@
                 android:textSize="16dp" />
 
             <TextView
+                android:id="@+id/humidity"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="70%"
