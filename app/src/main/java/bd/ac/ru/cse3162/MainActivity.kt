@@ -41,6 +41,8 @@ class MainActivity : AppCompatActivity() {
                         if (lat != null && long != null) {
                             var (cityName, country) = getAddress(lat.toDouble(), long.toDouble())
                             city.text = cityName + ", "+ country
+                            latitude.text = lat
+                            longitude.text = long
                         }
                     }
                 }

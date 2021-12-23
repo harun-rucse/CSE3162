@@ -58,6 +58,7 @@
                 android:textSize="16dp" />
 
             <TextView
+                android:id="@+id/latitude"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="32.03349"
@@ -78,6 +79,7 @@
                 android:textSize="16dp" />
 
             <TextView
+                android:id="@+id/longitude"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="-89.52229"
@@ -126,7 +128,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentRight="true"
-            android:text="33 °C"
+            android:text="33 °F"
             android:textSize="30dp"
             android:textStyle="bold" />
     </RelativeLayout>
